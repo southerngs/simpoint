@@ -83,6 +83,7 @@
 
 #include "Datapoint.h"
 #include <vector>
+#include <iostream>
 
 class Dataset : public vector<Datapoint> {
     public:

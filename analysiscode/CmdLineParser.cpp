@@ -71,6 +71,7 @@
 
 
 #include "CmdLineParser.h"
+#include <string.h>
 
 bool CmdLineParser::parseCmdLine(int argc, char **argv) {
     for (int argNdx = 0; argNdx < argc; argNdx++) {

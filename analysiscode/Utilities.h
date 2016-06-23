@@ -82,10 +82,13 @@
  * vector files and checking argument validity.
  ***********************************************************************/
 
+#include <fstream>
 #include "FVParser.h"
 #include "Dataset.h"
 #include "Logger.h"
 #include <string>
+#include <stdlib.h>
+#include <limits.h>
 
 string toString(int i);
 string toString(double d);
@@ -130,6 +133,20 @@ class Utilities {
                 Logger::log() << "\nError: " << msg << endl;
                 exit(1);
             }
+        }
+
+        static inline void check(std::ifstream& checkval, const string &msg) {
+          if (! checkval.is_open()) {
+            Logger::log() << "\nError: " << msg << endl;
+            exit(1);
+          }
+        }
+
+        static inline void check(std::ofstream& checkval, const string &msg) {
+          if (! checkval.is_open()) {
+            Logger::log() << "\nError: " << msg << endl;
+            exit(1);
+          }
         }
 };
 
